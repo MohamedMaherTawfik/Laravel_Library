@@ -9,4 +9,12 @@ class Authors extends Model
 {
     /** @use HasFactory<\Database\Factories\AuthorsFactory> */
     use HasFactory;
+
+    protected $table='authors';
+    protected $guarded=[];
+
+    public function books()
+    {
+        return $this->hasMany(Books::class);
+    }
 }

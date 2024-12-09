@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Books;
+use App\Models\Customers;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('borrow_books', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(Customers::class);
+            $table->foreignIdFor(Books::class);
+            $table->string('borrow_date');
+            $table->string('return_date')->nullable();
+            $table->string('status')->default('borrowed');
             $table->timestamps();
         });
     }
