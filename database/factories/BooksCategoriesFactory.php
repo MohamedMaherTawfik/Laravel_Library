@@ -17,7 +17,8 @@ class BooksCategoriesFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'categoreyName'=>fake()->name(),
+            'description'=>fake()->text(),
         ];
     }
 }

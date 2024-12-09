@@ -9,4 +9,13 @@ class Customers extends Model
 {
     /** @use HasFactory<\Database\Factories\CustomersFactory> */
     use HasFactory;
+
+    protected $table = 'customers';
+
+    protected $guarded = [];
+
+    public function borrow_books()
+    {
+        return $this->hasMany(BorrowBooks::class);
+    }
 }

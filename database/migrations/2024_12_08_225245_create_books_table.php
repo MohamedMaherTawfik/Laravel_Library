@@ -16,12 +16,13 @@ return new class extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('bookname');
             $table->foreignIdFor(App\Models\Authors::class);
             $table->foreignIdFor(App\Models\BooksCategories::class);
             $table->string('publish_year')->nullable();
             $table->string('language')->nullable();
             $table->decimal('quantity');
+            $table->string('status');
             $table->timestamps();
         });
     }
